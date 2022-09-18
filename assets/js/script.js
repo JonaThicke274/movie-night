@@ -14,7 +14,15 @@ var pastSearchesEl = document.querySelector(".past-searchlist")
 
 
 //API keys: Lacy: k_766k6kjr Lacy Alt: k_ag013nc0 k_g17k88h4 k_k97mdcmz Jonathan: k_hm16evk8
+<<<<<<< Updated upstream
 apiKey = "k_ag013nc0"
+=======
+
+apiKey1 = "k_ag013nc0"
+apiKey2 = "k_g17k88h4"
+apiKey3 = "k_k97mdcmz"
+
+>>>>>>> Stashed changes
 
 
 //cocktailDB key 9973533
@@ -39,7 +47,7 @@ $("#randomBtn").on("click", function(event){
 
 //Fetch movies from user's input
 var getMovieId = function(){
-    var searchUrl = "https://imdb-api.com/en/API/SearchMovie/" + apiKey + "/" + keySearch;
+    var searchUrl = "https://imdb-api.com/en/API/SearchMovie/" + apiKey1 + "/" + keySearch;
 
     //Fetch request
     fetch(searchUrl).then(function(response){
@@ -90,7 +98,7 @@ var showMovies = function(){
 
 //Function to fetch random movie
 var randomMovie = function(){
-    var randomMovieUrl = "https://imdb-api.com/en/API/Top250Movies/" + apiKey
+    var randomMovieUrl = "https://imdb-api.com/en/API/Top250Movies/" + apiKey1
     fetch(randomMovieUrl).then(function(response){
         response.json().then(function(data){
             var randNo = Math.floor(Math.random() * data.items.length)
@@ -99,13 +107,13 @@ var randomMovie = function(){
            
             
             //Then fetch the random movie's plot
-            var apiUrl = "https://imdb-api.com/en/API/Wikipedia/" + apiKey + "/" + imdbId;
+            var apiUrl = "https://imdb-api.com/en/API/Wikipedia/" + apiKey2 + "/" + imdbId;
             fetch(apiUrl).then(function(response){
                 response.json().then(function(data){
                     plot = data.plotShort.plainText;
                     plot = plot.toLowerCase();
             //Then get the movie's poster
-            var randomPosterUrl = "https://imdb-api.com/API/Posters/" + apiKey + "/" + imdbId;
+            var randomPosterUrl = "https://imdb-api.com/API/Posters/" + apiKey2 + "/" + imdbId;
             fetch(randomPosterUrl).then(function(response){
                 response.json().then(function(data){
                     var posterObj = data.posters[0];
@@ -113,7 +121,7 @@ var randomMovie = function(){
                     //If there is no poster returned, display 'no image available'
                     if (posterObj === undefined){
                         finalPoster = document.createElement("img");
-                        finalPoster.src ="https://64.media.tumblr.com/b33e159bd01f610ec43cc9995cc188bc/a085049e26e857c4-cf/s1280x1920/73f7334595c0a072311a428a74acf9de627f013f.pnj";
+                        finalPoster ="https://64.media.tumblr.com/b33e159bd01f610ec43cc9995cc188bc/a085049e26e857c4-cf/s1280x1920/73f7334595c0a072311a428a74acf9de627f013f.pnj";
                     }
                     else {finalPoster = posterObj["link"]}
 
@@ -130,7 +138,7 @@ var randomMovie = function(){
 
 var getMoviePlot = function(imdbId){
     //format api url
-    var apiUrl = "https://imdb-api.com/en/API/Wikipedia/" + apiKey + "/" + imdbId;
+    var apiUrl = "https://imdb-api.com/en/API/Wikipedia/" + apiKey3 + "/" + imdbId;
    
     //make request to url
     fetch(apiUrl).then(function(response){
